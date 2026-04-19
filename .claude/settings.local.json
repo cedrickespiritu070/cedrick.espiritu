@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(cp -r \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\temp-vite/.\" \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\cedrick.espiritu/\")",
+      "Bash(rm -rf \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\temp-vite\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
