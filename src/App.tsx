@@ -18,7 +18,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="texture" style={{ backgroundImage: 'url(/texture.png)' }} />
+      <div className="texture" style={{ backgroundImage: 'url(/texture.png)', zIndex: 24 }} />
       <div
         aria-hidden="true"
         style={{

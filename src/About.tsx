@@ -136,21 +136,24 @@ export default function About() {
       </div>
 
       {/* ── Carousel ── */}
+      {/* IMG_W=280px GAP=4px → unit per slot = 284px → 9 slots = 2556px exactly one set */}
       <div className="w-full overflow-hidden">
         <div
-          className="flex"
-          style={{ animation: 'marquee 25s linear infinite', willChange: 'transform' }}
+          className="flex gap-1"
+          style={{ animation: 'marquee 31s linear infinite', willChange: 'transform' }}
         >
-          {[0, 1].map((set) => (
-            <div key={set} className="flex gap-1 shrink-0">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="relative bg-[#b84c4c] w-[280px] shrink-0 overflow-hidden"
-                  style={{ aspectRatio: '4/5' }}
-                >
-                </div>
-              ))}
+          {[...['pic-01','pic-02','pic-03','pic-04','pic-05','pic-06','pic-07','pic-08','pic-09'],
+             ...['pic-01','pic-02','pic-03','pic-04','pic-05','pic-06','pic-07','pic-08','pic-09']].map((name, i) => (
+            <div
+              key={i}
+              className="relative bg-[#2a2a2a] w-[280px] shrink-0 overflow-hidden"
+              style={{ aspectRatio: '4/5' }}
+            >
+              <img
+                src={`/my-pics/${name}.webp`}
+                alt={name}
+                className="w-full h-full object-cover block"
+              />
             </div>
           ))}
         </div>
@@ -159,7 +162,7 @@ export default function About() {
       <style>{`
         @keyframes marquee {
           from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          to   { transform: translateX(-2556px); }
         }
       `}</style>
 
