@@ -1,0 +1,315 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  background: transparent;
+}
+
+/* ─── grad-blur: 8 stacked backdrop-filter layers ─── */
+.grad-blur {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  height: 130%;
+  top: 0;
+  pointer-events: none;
+}
+
+.grad-blur > div,
+.grad-blur::before,
+.grad-blur::after {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1 — weakest, bottom zone */
+.grad-blur::before {
+  content: "";
+  z-index: 1;
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(0.5px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)   0%,
+    rgba(0,0,0,1)  12.5%,
+    rgba(0,0,0,1)  25%,
+    rgba(0,0,0,0)  37.5%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)   0%,
+    rgba(0,0,0,1)  12.5%,
+    rgba(0,0,0,1)  25%,
+    rgba(0,0,0,0)  37.5%
+  );
+}
+
+/* Layer 2 */
+.grad-blur > div:nth-of-type(1) {
+  z-index: 2;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  12.5%,
+    rgba(0,0,0,1)  25%,
+    rgba(0,0,0,1)  37.5%,
+    rgba(0,0,0,0)  50%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  12.5%,
+    rgba(0,0,0,1)  25%,
+    rgba(0,0,0,1)  37.5%,
+    rgba(0,0,0,0)  50%
+  );
+}
+
+/* Layer 3 */
+.grad-blur > div:nth-of-type(2) {
+  z-index: 3;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  25%,
+    rgba(0,0,0,1)  37.5%,
+    rgba(0,0,0,1)  50%,
+    rgba(0,0,0,0)  62.5%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  25%,
+    rgba(0,0,0,1)  37.5%,
+    rgba(0,0,0,1)  50%,
+    rgba(0,0,0,0)  62.5%
+  );
+}
+
+/* Layer 4 */
+.grad-blur > div:nth-of-type(3) {
+  z-index: 4;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  37.5%,
+    rgba(0,0,0,1)  50%,
+    rgba(0,0,0,1)  62.5%,
+    rgba(0,0,0,0)  75%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  37.5%,
+    rgba(0,0,0,1)  50%,
+    rgba(0,0,0,1)  62.5%,
+    rgba(0,0,0,0)  75%
+  );
+}
+
+/* Layer 5 */
+.grad-blur > div:nth-of-type(4) {
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  50%,
+    rgba(0,0,0,1)  62.5%,
+    rgba(0,0,0,1)  75%,
+    rgba(0,0,0,0)  87.5%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  50%,
+    rgba(0,0,0,1)  62.5%,
+    rgba(0,0,0,1)  75%,
+    rgba(0,0,0,0)  87.5%
+  );
+}
+
+/* Layer 6 */
+.grad-blur > div:nth-of-type(5) {
+  z-index: 6;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  62.5%,
+    rgba(0,0,0,1)  75%,
+    rgba(0,0,0,1)  87.5%,
+    rgba(0,0,0,0)  100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  62.5%,
+    rgba(0,0,0,1)  75%,
+    rgba(0,0,0,1)  87.5%,
+    rgba(0,0,0,0)  100%
+  );
+}
+
+/* Layer 7 */
+.grad-blur > div:nth-of-type(6) {
+  z-index: 7;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  75%,
+    rgba(0,0,0,1)  87.5%,
+    rgba(0,0,0,1)  100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  75%,
+    rgba(0,0,0,1)  87.5%,
+    rgba(0,0,0,1)  100%
+  );
+}
+
+/* Layer 8 — strongest, top zone */
+.grad-blur::after {
+  content: "";
+  z-index: 8;
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  87.5%,
+    rgba(0,0,0,1)  100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0)  87.5%,
+    rgba(0,0,0,1)  100%
+  );
+}
+
+/* ── Logo ── */
+.navbar-logo {
+  position: relative;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #0d0d0d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* ── Nav links ── */
+.navbar-links {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-link:hover {
+  background-color: rgba(200, 200, 200, 0.4);
+  color: #000;
+}
+
+.navbar-link--active {
+  background-color: rgba(200, 200, 200, 0.63);
+  color: #000;
+  font-weight: 600;
+}
+
+.navbar-hamburger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .navbar-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .navbar--open .navbar-hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .navbar--open .navbar-hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar--open .navbar-hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 0 4px;
+    gap: 2px;
+  }
+
+  .navbar--open .navbar-links {
+    display: flex;
+  }
+
+  .navbar-link {
+    font-size: 14px;
+    padding: 10px 14px;
+    width: 100%;
+    text-align: left;
+  }
+}
