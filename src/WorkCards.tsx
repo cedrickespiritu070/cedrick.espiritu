@@ -243,10 +243,14 @@ export const CARDS: WorkCard[] = [
     title: 'UBLC 360',
     badge: 'SHIPPED',
     description:
-      'Interactive virtual tour website for the University of Baguio\'s Learning Commons — immersive 360° panoramic room viewers, an embedded PDF facility guide, and a survey-driven onboarding flow.',
+      'Interactive virtual tour website for the University of Batangas Learning Commons — immersive 360° panoramic room viewers, an embedded PDF facility guide, and a survey-driven onboarding flow.',
     company: 'University of Batangas Lipa',
     year: '2023',
     bgColor: '#0a1628',
+    thumbnail: '/projects-media/ublc/ublc-thumbnail.gif',
+    images: [
+      '/projects-media/ublc/ublc-page-1.jpg',
+    ],
     role: 'Frontend Developer & Designer',
     duration: '— months',
     platform: 'Web',
