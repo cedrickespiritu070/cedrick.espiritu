@@ -125,6 +125,16 @@
   color: rgba(0, 0, 0, 0.45);
 }
 
+.hero-meta-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.2s ease;
+}
+
+.hero-meta-link:hover {
+  color: #000;
+}
+
 /* DIVIDER */
 .hero-divider {
   width: 1px;

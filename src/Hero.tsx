@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 const ROTATING_HEADLINES = [
@@ -31,14 +32,31 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+      <svg
+        width="0"
+        height="0"
+        style={{ position: "absolute" }}
+        aria-hidden="true"
+      >
         <defs>
           <filter id="vblur-filter">
             <feGaussianBlur in="SourceGraphic" stdDeviation="28 0" />
           </filter>
           <filter id="grain-edge" x="-8%" y="-8%" width="116%" height="116%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="5" seed="5" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.82"
+              numOctaves="5"
+              seed="5"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="6"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
           </filter>
         </defs>
       </svg>
@@ -50,7 +68,9 @@ export default function Hero() {
             <h1 className="hero-h1">Mabuhay! I'm Cedrick</h1>
           </div>
           <div className="hero-h1-blur-layers">
-<h1 className="hero-h1 hero-h1-layer-top" aria-hidden="true">Mabuhay! I'm Cedrick</h1>
+            <h1 className="hero-h1 hero-h1-layer-top" aria-hidden="true">
+              Mabuhay! I'm Cedrick
+            </h1>
             <h1 className="hero-h1 hero-h1-layer-base">Mabuhay! I'm Cedrick</h1>
           </div>
         </div>
@@ -77,6 +97,12 @@ export default function Hero() {
             <span className="hero-meta-label">Previously at</span>
             <span className="hero-meta-value">Divine Software Systems</span>
           </div>
+          <div className="hero-meta-col">
+            <span className="hero-meta-label">Featured Work</span>
+            <Link to="/projects/trackshot" className="hero-meta-value hero-meta-link">
+              TrackShot ↗
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -102,7 +128,7 @@ export default function Hero() {
           </div>
 
           <p className="hero-bio-title">Nice to meet you!</p>
-          <p className="hero-bio-text"> 
+          <p className="hero-bio-text">
             I am your resident multimedia designer and software engineer:
             front-end developer, mobile app builder, and branding fanatic. I
             like bridging design and code to build things that actually ship.

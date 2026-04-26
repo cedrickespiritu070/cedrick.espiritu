@@ -43,6 +43,15 @@
   border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
+  position: relative;
+}
+
+.work-card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
 }
 
 .work-card-body {

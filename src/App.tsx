@@ -4,6 +4,7 @@ import Hero from './Hero'
 import WorkCards from './WorkCards'
 import About from './About'
 import Resume from './Resume'
+import ProjectDetail from './ProjectDetail'
 import './App.css'
 
 function Home() {
@@ -18,11 +19,11 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="texture" style={{ backgroundImage: 'url(/texture.png)', zIndex: 24 }} />
+      <div className="texture" style={{ backgroundImage: 'url(/texture.png)' }} />
       <div
         aria-hidden="true"
         style={{
-          position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 25,
+          position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1000,
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
           backgroundSize: '200px 200px',
           mixBlendMode: 'overlay',
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
         </Routes>
       </main>
     </BrowserRouter>
