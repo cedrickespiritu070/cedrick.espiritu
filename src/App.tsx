@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import texturePng from './assets/texture.png'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import WorkCards from './WorkCards'
@@ -19,7 +20,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="texture" style={{ backgroundImage: 'url(/texture.png)' }} />
+      <div className="texture" style={{ backgroundImage: `url(${texturePng})` }} />
       <div
         aria-hidden="true"
         style={{
