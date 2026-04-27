@@ -11,14 +11,6 @@ const BADGE_COLORS: Record<BadgeType, string> = {
   WINNER:   'rgba(255, 200, 0, 0.2)',
 }
 
-const SIDEBAR_FEATURES = [
-  'Production-ready codebase',
-  'Full design system included',
-  'Mobile-first responsive layout',
-  'Accessible & WCAG compliant',
-  'Documented component library',
-]
-
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const project = CARDS.find((c) => c.slug === slug)
@@ -115,13 +107,16 @@ export default function ProjectDetail() {
               )}
             </div>
 
-            {/* Dot thumbnails */}
+            {/* Dot indicators */}
             {hasImages && images.length > 1 && (
               <div className="pd-thumbs">
-                {images.map((src, i) => (
-                  <button key={i} className={`pd-thumb${i === current ? ' pd-thumb-active' : ''}`} onClick={() => setCurrent(i)}>
-                    <img src={src} alt={`thumb ${i + 1}`} />
-                  </button>
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`pd-thumb-dot${i === current ? ' pd-thumb-dot-active' : ''}`}
+                    onClick={() => setCurrent(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                  />
                 ))}
               </div>
             )}
@@ -140,7 +135,6 @@ export default function ProjectDetail() {
                 { label: 'Company',  value: project.company  },
                 { label: 'Year',     value: String(project.year) },
                 { label: 'Role',     value: project.role     },
-                { label: 'Duration', value: project.duration },
                 { label: 'Platform', value: project.platform },
               ].map(({ label, value }) => (
                 <div key={label} className="pd-meta-col">
@@ -186,8 +180,6 @@ export default function ProjectDetail() {
           {/* RIGHT sidebar */}
           <aside className="pd-sidebar">
             <div className="pd-sidebar-inner">
-              <div className="pd-sidebar-strip" style={{ background: project.bgColor }} />
-
               <div className="pd-sidebar-body">
                 <div>
                   <h3 className="pd-sidebar-name">{project.title}</h3>
@@ -197,7 +189,7 @@ export default function ProjectDetail() {
                 <hr className="pd-divider" />
 
                 <ul className="pd-features">
-                  {SIDEBAR_FEATURES.map((f) => (
+                  {project.features.map((f) => (
                     <li key={f} className="pd-feature-item">
                       <span className="pd-check">
                         <svg viewBox="0 0 12 12" fill="none" width="10" height="10">
@@ -228,10 +220,6 @@ export default function ProjectDetail() {
                 )}
 
                 <div className="pd-sidebar-meta">
-                  <div>
-                    <p className="pd-meta-label">Duration</p>
-                    <p className="pd-meta-value">{project.duration}</p>
-                  </div>
                   <div>
                     <p className="pd-meta-label">Platform</p>
                     <p className="pd-meta-value">{project.platform}</p>

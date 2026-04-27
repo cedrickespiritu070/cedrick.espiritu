@@ -6,7 +6,8 @@
       "Bash(rm -rf \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\temp-vite\")",
       "Bash(npm install *)",
       "Bash(npx tsc *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(python3 *)"
     ]
   }
 }

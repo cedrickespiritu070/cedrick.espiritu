@@ -18,9 +18,9 @@ export interface WorkCard {
   year: string
   bgColor: string
   role: string
-  duration: string
   platform: string
   overview: string
+  features: string[]
   sections: ProjectSection[]
   live?: string
   links?: { label: string; url: string }[]
@@ -51,8 +51,15 @@ export const CARDS: WorkCard[] = [
       '/projects-media/trackshot/trackshot-page-3.jpg',
     ],
     role: 'Mobile Developer & Designer',
-    duration: '— months',
+
     platform: 'iOS, Android',
+    features: [
+      'Production iOS & Android app',
+      '40+ tournament scoring formats',
+      'Real-time leaderboard via Supabase',
+      'Advanced handicap & tiebreaker system',
+      'App Store & Play Store listed',
+    ],
     overview:
       'TrackShot is a production-ready mobile golf tournament management app for iOS and Android, supporting 40+ scoring formats, real-time leaderboards, advanced handicap calculations, and side games like Skins and Closest to the Pin. I contributed across both development and design — handling all graphic materials from early prototyping through App Store and Google Play submission, including the store preview images and marketing assets.',
     sections: [
@@ -88,8 +95,15 @@ export const CARDS: WorkCard[] = [
     ],
     live: 'https://play.google.com/store/apps/details?id=com.divinesoftware.mynewapp&pcampaignid=web_share',
     role: 'Mobile Developer & Designer',
-    duration: '— months',
+
     platform: 'iOS, Android, Web',
+    features: [
+      'Cross-platform iOS, Android & Web',
+      'Real-time job dispatching system',
+      'Multi-role dashboard (dispatcher, tech, admin)',
+      'PDF report generation',
+      'Push notifications & offline sync',
+    ],
     overview:
       'Wings of Angels (WOA) is a full-stack transport management system built for medical and mortuary logistics — handling real-time job dispatching, technician coordination, PDF documentation, and multi-role dashboards across iOS, Android, and Web. I was involved in the project from design through deployment: I handled all graphic materials starting from prototyping in Figma, produced the final app preview images and screenshots submitted to both the App Store and Google Play Store, and contributed to the frontend development across the Expo/React Native codebase. Currently implementing Redis (via Upstash) for server-side Query Result Caching on the dispatcher and admin dashboards to reduce redundant Firestore reads.',
     sections: [
@@ -123,8 +137,14 @@ export const CARDS: WorkCard[] = [
       '/projects-media/rfv/rfv-page-2.jpg',
     ],
     role: 'Frontend Developer & UI Designer',
-    duration: '— months',
-    platform: 'Web',
+    platform: 'Web, Mobile',
+    features: [
+      '4-app Turbo monorepo architecture',
+      'Multi-level document approval workflow',
+      'Financial reports with PDF & Excel export',
+      'Role-based access via Supabase RLS',
+      'Full accounting & operations suite',
+    ],
     overview:
       'RFV Allianz System is a full-stack enterprise web application built to digitize and centralize the financial operations of RFV Allianz. The system spans four interconnected web apps — a full accounting platform, a CFO sales dashboard, a daily sales tracker, and a client portal — all managed as a single Turbo monorepo. I was involved in the front-end development and UI design, handling prototyping and implementation of key modules from accounting workflows to operations management.',
     sections: [
@@ -152,6 +172,7 @@ export const CARDS: WorkCard[] = [
     company: 'Tulay',
     year: '2024',
     bgColor: '#2a1a0e',
+    live: 'https://www.tulayticketing.com/',
     thumbnail: '/projects-media/tulay/tulay-page-1.jpg',
     images: [
       '/projects-media/tulay/tulay-page-2.jpg',
@@ -164,8 +185,15 @@ export const CARDS: WorkCard[] = [
       '/projects-media/tulay/tulay-page-9.jpg',
     ],
     role: 'Lead Multimedia Designer & Software Engineer',
-    duration: '— months',
+
     platform: 'Web, Mobile',
+    features: [
+      'Dynamic QR code ticketing',
+      'Stripe-powered secure payments',
+      'Real-time sales analytics dashboard',
+      'GCash & Maya compatible',
+      'Mobile-first cashless experience',
+    ],
     overview:
       'Tulay (Filipino for "bridge") is a high-performance digital platform designed to revolutionize the live events industry in the Philippines and the US. Originally conceptualized as a vendor-centric payment solution, the project evolved into a comprehensive digital mobile ticketing e-wallet. As the Lead Multimedia Designer and Software Engineer, I handled the end-to-end creative process — from the initial high-fidelity prototyping in Figma to the production of all graphic marketing materials and the final technical implementation.',
     sections: [
@@ -193,6 +221,7 @@ export const CARDS: WorkCard[] = [
     company: 'Divine Software Systems',
     year: '2025',
     bgColor: '#1e1a2e',
+    live: 'https://www.parishconnectapp.com/',
     thumbnail: '/projects-media/parish-connect/parish-connect-thumbnail.gif',
     images: [
       '/projects-media/parish-connect/parish-connect-page-1.jpg',
@@ -201,8 +230,15 @@ export const CARDS: WorkCard[] = [
       '/projects-media/parish-connect/parish-connect-page-4.jpg',
     ],
     role: 'UI/UX Designer',
-    duration: '— months',
+
     platform: 'iOS, Android, Web',
+    features: [
+      'Whitelabel for 12+ parish-branded apps',
+      'Push notifications & PDF downloads',
+      'Native calendar integration',
+      'Full web-based admin panel',
+      'Scripture readings & mass schedule',
+    ],
     overview:
       'Parish Connect is a whitelabel platform that digitizes the pastoral and administrative operations of Roman Catholic parishes. A single codebase powers 12+ parish-branded apps — each customized to its own parish identity. The project ships as two products: a cross-platform mobile app for parishioners and a web-based admin panel for parish staff. My role covered all graphic and visual work — from early wireframes and interactive prototypes through to production-ready UI assets and the app store preview and screenshot images.',
     sections: [
@@ -231,8 +267,15 @@ export const CARDS: WorkCard[] = [
     year: '2025',
     bgColor: '#0d1220',
     role: 'Full-Stack Developer & Brand Designer',
-    duration: '— months',
+
     platform: 'Web',
+    features: [
+      'Stripe checkout with Edge Function webhook',
+      'Persistent cart via Zustand',
+      'Supabase real-time inventory & auth',
+      'Custom brand design system',
+      'Deployed & SEO-optimized on Vercel',
+    ],
     overview:
       'Engineered a custom, ground-up e-commerce platform for a Lipa-based streetwear brand. I was responsible for the entire product lifecycle, covering brand identity, UI/UX design, and the full-stack technical implementation.',
     sections: [
@@ -270,8 +313,15 @@ export const CARDS: WorkCard[] = [
       '/projects-media/ublc/ublc-page-1.jpg',
     ],
     role: 'Frontend Developer & Designer',
-    duration: '— months',
+
     platform: 'Web',
+    features: [
+      'Immersive 360° panoramic room viewers',
+      'Survey-driven onboarding flow',
+      'Embedded PDF facility guide viewer',
+      'Google Analytics integrated',
+      'Fully mobile responsive',
+    ],
     overview:
       'UBLC 360 is an interactive virtual tour website for the University of Batangas Lipa Campus\'s Learning Commons facilities. I handled the project from graphic materials through to production — designing visual assets and building the full front-end.',
     sections: [
@@ -292,31 +342,53 @@ export const CARDS: WorkCard[] = [
   },
   {
     id: 7,
-    slug: 'snipers-security',
-    title: 'Snipers Security',
+    slug: 'dss-brand-identity',
+    title: 'DSS Brand Identity',
     badge: 'SHIPPED',
     description:
-      'Company website for Snipers Security, a professional security services firm — multi-page SPA with animated stat counters, scroll-triggered reveals, image carousels, and a serverless contact form.',
-    company: 'Snipers Security',
-    year: '2024',
-    bgColor: '#111111',
-    role: 'Frontend Developer & Designer',
-    duration: '— months',
-    platform: 'Web',
+      'Comprehensive brand identity system for Divine Software Systems — logo architecture, color theory, safe zones, and a 13-page technical brand manual built for scale across digital and print.',
+    company: 'Divine Software Systems',
+    year: '2025',
+    bgColor: '#0a1828',
+    live: 'https://www.divinesoftwaresystems.com/',
+    thumbnail: '/projects-media/dss-brand-identity/dss-page-1.jpg',
+    images: [
+      '/projects-media/dss-brand-identity/dss-page-2.jpg',
+      '/projects-media/dss-brand-identity/dss-page-3.jpg',
+      '/projects-media/dss-brand-identity/dss-page-4.jpg',
+      '/projects-media/dss-brand-identity/dss-page-5.jpg',
+      '/projects-media/dss-brand-identity/dss-page-6.jpg',
+      '/projects-media/dss-brand-identity/dss-page-7.jpg',
+      '/projects-media/dss-brand-identity/dss-page-8.jpg',
+      '/projects-media/dss-brand-identity/dss-page-9.jpg',
+      '/projects-media/dss-brand-identity/dss-page-10.jpg',
+      '/projects-media/dss-brand-identity/dss-page-11.jpg',
+      '/projects-media/dss-brand-identity/dss-page-12.jpg',
+      '/projects-media/dss-brand-identity/dss-page-13.jpg',
+    ],
+    role: 'Lead Graphic Designer',
+    platform: 'Print, Digital',
+    features: [
+      'Vertical & horizontal logo lockups',
+      'Strict safe zone & spacing rules',
+      'Black & white high-contrast variant',
+      '13-page technical brand manual',
+      'Scales from 16px to large-format print',
+    ],
     overview:
-      'A company website for Snipers Security, a professional security services firm. I handled the full pipeline — from creating the graphic materials and visual assets to coding and shipping the site to production.',
+      'As the Lead Graphic Designer for this project, I was tasked to build the visual foundation for Divine Software Systems from the ground up. My goal was to create a design system that feels both "high-tech" and "high-trust," ensuring the brand stays consistent whether it\'s on a favicon or a large-scale print. I primarily used Adobe Illustrator for the core identity work and Adobe Photoshop for the layout and production of the brand guidelines.',
     sections: [
       {
         title: 'Problem',
-        body: 'The company lacked a professional web presence to present their business and security service offerings. They needed a modern, responsive site with a working contact channel — without the overhead of managing a custom backend.',
+        body: 'Divine Software Systems needed more than just a logo — they needed a professional identity that could bridge the gap between innovation and reliability. The brand\'s personality is built on being professional and inclusive, but without a clear set of rules, the visual execution would end up fragmented. They needed a system that could scale across different platforms without losing its premium feel or technical integrity.',
       },
       {
         title: 'Process',
-        body: 'Built a multi-page single-page application (SPA) in React 18 with lazy-loaded routes for fast initial load. Styled entirely with Tailwind CSS utility classes for a consistent, responsive layout across breakpoints. Integrated Formspree to handle contact form submissions without a custom server. Added polish through animated stat counters (react-countup), scroll-triggered reveals (react-intersection-observer), and image carousels (react-slick).',
+        body: 'I started with the Logo Architecture in Illustrator, designing a flexible system that includes both vertical and horizontal lockups to handle different spatial constraints. To keep the brand looking clean, I defined a strict Safe Zone (1/2 x) to prevent visual clutter. For the Color Theory, I chose Light Ocean Blue (#4598ec) as the primary driver to represent trust and the future-forward direction they wanted. I also stress-tested the mark by creating a Black and White version for high-contrast environments and dark-mode UI. Everything was compiled into a 13-page technical manual so any future developer or designer knows exactly how to handle the assets.',
       },
       {
         title: 'Outcome',
-        body: 'Shipped a fully responsive, production-ready website with 5 pages — Home, Business Services, Security Services, About Us, and Contact Us — featuring code-splitting, lazy loading, and a functional contact form live in production.',
+        body: 'The result is a comprehensive Brand Identity System that is fully production-ready. I delivered a complete kit of parts — from scaling rules (as small as 16px) to a defined color palette (#282828 for depth and #f3f3f3 for clarity). By setting these guardrails, DSS always looks polished and "Divine" regardless of the medium or use case.',
       },
     ],
   },
