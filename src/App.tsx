@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import texturePng from './assets/texture.png'
 import Navbar from './Navbar'
 import Hero from './Hero'
@@ -7,6 +8,12 @@ import About from './About'
 import Resume from './Resume'
 import ProjectDetail from './ProjectDetail'
 import './App.css'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 
 function Home() {
   return (
@@ -31,6 +38,7 @@ export default function App() {
           opacity: 0.5,
         }}
       />
+      <ScrollToTop />
       <Navbar />
       <main style={{ paddingTop: '72px' }}>
         <Routes>

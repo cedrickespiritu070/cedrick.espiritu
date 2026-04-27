@@ -182,6 +182,13 @@ export const CARDS: WorkCard[] = [
     company: 'Divine Software Systems',
     year: '2025',
     bgColor: '#1e1a2e',
+    thumbnail: '/projects-media/parish-connect/parish-connect-thumbnail.gif',
+    images: [
+      '/projects-media/parish-connect/parish-connect-page-1.jpg',
+      '/projects-media/parish-connect/parish-connect-page-2.jpg',
+      '/projects-media/parish-connect/parish-connect-page-3.jpg',
+      '/projects-media/parish-connect/parish-connect-page-4.jpg',
+    ],
     role: 'UI/UX Designer',
     duration: '— months',
     platform: 'iOS, Android, Web',
