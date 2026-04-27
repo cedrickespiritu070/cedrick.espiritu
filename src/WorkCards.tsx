@@ -37,7 +37,7 @@ export const CARDS: WorkCard[] = [
     description:
       'Production-ready mobile golf tournament management app for iOS and Android. Supports 40+ scoring formats, real-time leaderboards, advanced handicap calculations, and side games like Skins and Closest to the Pin.',
     company: 'Divine Software Systems',
-    year: '2025',
+    year: '2026',
     bgColor: '#1c3a1c',
     thumbnail: '/projects-media/trackshot/trackshot.gif',
     links: [
@@ -51,7 +51,6 @@ export const CARDS: WorkCard[] = [
       '/projects-media/trackshot/trackshot-page-3.jpg',
     ],
     role: 'Mobile Developer & Designer',
-
     platform: 'iOS, Android',
     features: [
       'Production iOS & Android app',
@@ -79,50 +78,92 @@ export const CARDS: WorkCard[] = [
   },
   {
     id: 1,
-    slug: 'wings-of-angels',
-    title: 'Wings of Angels Transport',
+    slug: 'metrosevn-ecommerce',
+    title: 'MetroSevn Ecommerce',
     badge: 'SHIPPED',
     description:
-      'Full-stack transport management system built for medical and mortuary logistics — real-time job dispatching, technician coordination, PDF documentation, and multi-role dashboards across iOS, Android, and Web.',
-    company: 'Divine Software Systems',
-    year: '2025',
-    bgColor: '#0d1b2e',
-    thumbnail: '/projects-media/woa/woa-thumbnail.jpg',
-    images: [
-      '/projects-media/woa/woa-page-1.jpg',
-      '/projects-media/woa/woa-page-2.jpg',
-      '/projects-media/woa/woa-page-3.jpg',
-    ],
-    live: 'https://play.google.com/store/apps/details?id=com.divinesoftware.mynewapp&pcampaignid=web_share',
-    role: 'Mobile Developer & Designer',
-
-    platform: 'iOS, Android, Web',
+      'Full-stack e-commerce storefront for MetroSevn, a Lipa-based streetwear brand — built from scratch with React, TypeScript, and Supabase. Features a Stripe-integrated checkout pipeline, product catalog, persistent cart, and a custom brand identity designed from the ground up.',
+    company: 'MetroSevn',
+    year: '2026',
+    bgColor: '#0d1220',
+    thumbnail: '/projects-media/metrosevn/metrosevn-thumbnail.jpg',
+    role: 'Full-Stack Developer & Brand Designer',
+    platform: 'Web',
     features: [
-      'Cross-platform iOS, Android & Web',
-      'Real-time job dispatching system',
-      'Multi-role dashboard (dispatcher, tech, admin)',
-      'PDF report generation',
-      'Push notifications & offline sync',
+      'Stripe checkout pipeline with Edge Function webhook',
+      'Persistent cart & session management',
+      'Supabase real-time inventory & auth',
+      'Custom brand design system',
+      'Deployed & SEO-optimized on Vercel',
     ],
     overview:
-      'Wings of Angels (WOA) is a full-stack transport management system built for medical and mortuary logistics — handling real-time job dispatching, technician coordination, PDF documentation, and multi-role dashboards across iOS, Android, and Web. I was involved in the project from design through deployment: I handled all graphic materials starting from prototyping in Figma, produced the final app preview images and screenshots submitted to both the App Store and Google Play Store, and contributed to the frontend development across the Expo/React Native codebase. Currently implementing Redis (via Upstash) for server-side Query Result Caching on the dispatcher and admin dashboards to reduce redundant Firestore reads.',
+      'Engineered a custom, ground-up e-commerce platform for a Lipa-based streetwear brand. I was responsible for the entire product lifecycle, covering brand identity, UI/UX design, and the full-stack technical implementation.',
     sections: [
       {
-        title: 'Problem',
-        body: 'The app had no server-side caching layer — every dashboard load triggered full Firestore collection scans, pulling 500+ documents per user regardless of role or relevance. This caused slow load times, high Firestore read costs, and redundant network calls across multiple simultaneous users. On the design side, the app lacked polished store-ready visuals and needed a consistent design language from prototype to production.',
+        title: 'The Problem',
+        body: 'The brand lacked a digital footprint and a secure way to process orders. They required a high-performance storefront that reflected their "street-culture" aesthetic — moving away from generic, cookie-cutter templates to a bespoke design system.',
       },
       {
-        title: 'Process',
-        body: 'On the design side, I built out the full prototype in Figma — covering user flows for dispatchers, technicians, and admins — then translated those designs into production screens within the Expo codebase. I also created all store assets including app preview images, screenshots, and metadata graphics for both the Apple App Store and Google Play Store submissions. On the engineering side, I analyzed Firestore query patterns across the dashboard components to identify the highest-cost read operations and scoped a Redis caching strategy using Upstash (serverless Redis over HTTP, compatible with Firebase Cloud Functions) — targeting dashboard query results first, caching job lists by user role and status with short TTLs (30–60 seconds) to balance freshness against read reduction.',
+        title: 'Technical Stack',
+        body: 'Frontend: React 19, TypeScript 5.7, Vite 6, Tailwind CSS 3. State & Routing: React Router DOM v7. Backend & DB: Supabase (PostgreSQL, Auth, Edge Functions). Infrastructure: Deno (Runtime), Vercel (Deployment). Payments: Stripe API (sandbox).',
+      },
+      {
+        title: 'Implementation Details',
+        body: 'Design System: Developed a custom Tailwind configuration featuring a brand-specific palette (ms-blue, ms-black) and a multi-typeface system (Playfair Display / DM Mono). Implemented an animated grain overlay via CSS to achieve a gritty, analog aesthetic. Architecture: Built a component-driven architecture with a focus on type safety and performance. Integrated Supabase for real-time inventory and user authentication. Checkout Flow: Engineered a secure payment pipeline using Supabase Edge Functions (Deno) — Function A handles Stripe Session creation and cart validation; Function B is a webhook listener that processes Stripe events to update order statuses in PostgreSQL. State Management: Utilized Zustand for persistent cart state and implemented a 2-second polling mechanism on the success page to ensure real-time payment confirmation before rendering the receipt.',
       },
       {
         title: 'Outcome',
-        body: 'The app shipped to both the App Store and Google Play Store with complete store listings including custom preview images and screenshots. The multi-role platform supports dispatchers, technicians, and management with real-time job tracking, PDF report generation, push notifications, and offline sync. Redis-based Query Result Caching on the dashboard is currently in progress — projected to reduce Firestore reads by 60–70% on dashboard load, cutting operational costs and improving response times for high-traffic dispatch windows.',
+        body: 'Delivered a production-ready, SEO-optimized storefront. The final product features a seamless end-to-end user journey — from product discovery and persistent cart management to secure checkout — all while maintaining a cohesive brand identity inspired by local urban culture.',
+      },
+    ],
+    live: 'https://metro-sevn-ecommerce.vercel.app/',
+  },
+  {
+    id: 2,
+    slug: 'parish-connect',
+    title: 'Parish Connect',
+    badge: 'SHIPPED',
+    description:
+      'Whitelabel platform digitizing the pastoral and administrative operations of Roman Catholic parishes — a single codebase powering 12+ parish-branded mobile apps and a web admin panel.',
+    company: 'Divine Software Systems',
+    year: '2025',
+    bgColor: '#1e1a2e',
+    live: 'https://www.parishconnectapp.com/',
+    thumbnail: '/projects-media/parish-connect/parish-connect-thumbnail.gif',
+    images: [
+      '/projects-media/parish-connect/parish-connect-page-1.jpg',
+      '/projects-media/parish-connect/parish-connect-page-2.jpg',
+      '/projects-media/parish-connect/parish-connect-page-3.jpg',
+      '/projects-media/parish-connect/parish-connect-page-4.jpg',
+    ],
+    role: 'UI/UX Designer',
+    platform: 'iOS, Android, Web',
+    features: [
+      'Whitelabel for 12+ parish-branded apps',
+      'Push notifications & PDF downloads',
+      'Native calendar integration',
+      'Full web-based admin panel',
+      'Scripture readings & mass schedule',
+    ],
+    overview:
+      'Parish Connect is a whitelabel platform that digitizes the pastoral and administrative operations of Roman Catholic parishes. A single codebase powers 12+ parish-branded apps — each customized to its own parish identity. The project ships as two products: a cross-platform mobile app for parishioners and a web-based admin panel for parish staff. My role covered all graphic and visual work — from early wireframes and interactive prototypes through to production-ready UI assets and the app store preview and screenshot images.',
+    sections: [
+      {
+        title: 'Problem',
+        body: 'Parish staff were managing everything manually — printed weekly bulletins, handwritten family records, phone-tree announcements — with no central system and no way to reach parishioners consistently. At the same time, each of the 12+ partner parishes needed a distinct branded identity without the overhead of maintaining separate codebases.',
+      },
+      {
+        title: 'Process',
+        body: 'Designed and prototyped the full UI across both the mobile app and admin panel, covering screens for announcements, events, mass schedules, bulletins, community and family records, gallery, ministry pages, prayers, readings, priest profiles, and an audit log system. Produced all production-ready graphic assets and parish-specific branding materials. Created all preview and screenshot images used across app store listings and parish marketing. The admin panel and backend were built in parallel by the dev team using React + Vite + Tailwind + Supabase on the frontend and Node.js/Express on the backend; the mobile app used React Native (Expo) + NativeWind + Supabase.',
+      },
+      {
+        title: 'Outcome',
+        body: 'A fully deployed, live system serving 12+ parishes — each with their own branded app. Parish admins use the web panel to manage content across all modules (announcements, events, bulletins, mass songs, family records, gallery, ads, and more) while parishioners access everything through the mobile app with push notifications, PDF downloads, scripture readings, and native calendar integration.',
       },
     ],
   },
   {
-    id: 2,
+    id: 3,
     slug: 'rfv-allianz',
     title: 'RFV Allianz App',
     badge: 'SHIPPED',
@@ -163,7 +204,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     slug: 'tulay-app',
     title: 'Tulay App',
     badge: 'SHIPPED',
@@ -185,7 +226,6 @@ export const CARDS: WorkCard[] = [
       '/projects-media/tulay/tulay-page-9.jpg',
     ],
     role: 'Lead Multimedia Designer & Software Engineer',
-
     platform: 'Web, Mobile',
     features: [
       'Dynamic QR code ticketing',
@@ -212,143 +252,57 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 4,
-    slug: 'parish-connect',
-    title: 'Parish Connect',
+    id: 5,
+    slug: 'wings-of-angels',
+    title: 'Wings of Angels Transport',
     badge: 'SHIPPED',
     description:
-      'Whitelabel platform digitizing the pastoral and administrative operations of Roman Catholic parishes — a single codebase powering 12+ parish-branded mobile apps and a web admin panel.',
+      'Full-stack transport management system built for medical and mortuary logistics — real-time job dispatching, technician coordination, PDF documentation, and multi-role dashboards across iOS, Android, and Web.',
     company: 'Divine Software Systems',
-    year: '2025',
-    bgColor: '#1e1a2e',
-    live: 'https://www.parishconnectapp.com/',
-    thumbnail: '/projects-media/parish-connect/parish-connect-thumbnail.gif',
+    year: '2024',
+    bgColor: '#0d1b2e',
+    thumbnail: '/projects-media/woa/woa-thumbnail.jpg',
     images: [
-      '/projects-media/parish-connect/parish-connect-page-1.jpg',
-      '/projects-media/parish-connect/parish-connect-page-2.jpg',
-      '/projects-media/parish-connect/parish-connect-page-3.jpg',
-      '/projects-media/parish-connect/parish-connect-page-4.jpg',
+      '/projects-media/woa/woa-page-1.jpg',
+      '/projects-media/woa/woa-page-2.jpg',
+      '/projects-media/woa/woa-page-3.jpg',
     ],
-    role: 'UI/UX Designer',
-
+    live: 'https://play.google.com/store/apps/details?id=com.divinesoftware.mynewapp&pcampaignid=web_share',
+    role: 'Mobile Developer & Designer',
     platform: 'iOS, Android, Web',
     features: [
-      'Whitelabel for 12+ parish-branded apps',
-      'Push notifications & PDF downloads',
-      'Native calendar integration',
-      'Full web-based admin panel',
-      'Scripture readings & mass schedule',
+      'Cross-platform iOS, Android & Web',
+      'Real-time job dispatching system',
+      'Multi-role dashboard (dispatcher, tech, admin)',
+      'PDF report generation',
+      'Push notifications & offline sync',
     ],
     overview:
-      'Parish Connect is a whitelabel platform that digitizes the pastoral and administrative operations of Roman Catholic parishes. A single codebase powers 12+ parish-branded apps — each customized to its own parish identity. The project ships as two products: a cross-platform mobile app for parishioners and a web-based admin panel for parish staff. My role covered all graphic and visual work — from early wireframes and interactive prototypes through to production-ready UI assets and the app store preview and screenshot images.',
+      'Wings of Angels (WOA) is a full-stack transport management system built for medical and mortuary logistics — handling real-time job dispatching, technician coordination, PDF documentation, and multi-role dashboards across iOS, Android, and Web. I was involved in the project from design through deployment: I handled all graphic materials starting from prototyping in Figma, produced the final app preview images and screenshots submitted to both the App Store and Google Play Store, and contributed to the frontend development across the Expo/React Native codebase. Currently implementing Redis (via Upstash) for server-side Query Result Caching on the dispatcher and admin dashboards to reduce redundant Firestore reads.',
     sections: [
       {
         title: 'Problem',
-        body: 'Parish staff were managing everything manually — printed weekly bulletins, handwritten family records, phone-tree announcements — with no central system and no way to reach parishioners consistently. At the same time, each of the 12+ partner parishes needed a distinct branded identity without the overhead of maintaining separate codebases.',
+        body: 'The app had no server-side caching layer — every dashboard load triggered full Firestore collection scans, pulling 500+ documents per user regardless of role or relevance. This caused slow load times, high Firestore read costs, and redundant network calls across multiple simultaneous users. On the design side, the app lacked polished store-ready visuals and needed a consistent design language from prototype to production.',
       },
       {
         title: 'Process',
-        body: 'Designed and prototyped the full UI across both the mobile app and admin panel, covering screens for announcements, events, mass schedules, bulletins, community and family records, gallery, ministry pages, prayers, readings, priest profiles, and an audit log system. Produced all production-ready graphic assets and parish-specific branding materials. Created all preview and screenshot images used across app store listings and parish marketing. The admin panel and backend were built in parallel by the dev team using React + Vite + Tailwind + Supabase on the frontend and Node.js/Express on the backend; the mobile app used React Native (Expo) + NativeWind + Supabase.',
+        body: 'On the design side, I built out the full prototype in Figma — covering user flows for dispatchers, technicians, and admins — then translated those designs into production screens within the Expo codebase. I also created all store assets including app preview images, screenshots, and metadata graphics for both the Apple App Store and Google Play Store submissions. On the engineering side, I analyzed Firestore query patterns across the dashboard components to identify the highest-cost read operations and scoped a Redis caching strategy using Upstash (serverless Redis over HTTP, compatible with Firebase Cloud Functions) — targeting dashboard query results first, caching job lists by user role and status with short TTLs (30–60 seconds) to balance freshness against read reduction.',
       },
       {
         title: 'Outcome',
-        body: 'A fully deployed, live system serving 12+ parishes — each with their own branded app. Parish admins use the web panel to manage content across all modules (announcements, events, bulletins, mass songs, family records, gallery, ads, and more) while parishioners access everything through the mobile app with push notifications, PDF downloads, scripture readings, and native calendar integration.',
+        body: 'The app shipped to both the App Store and Google Play Store with complete store listings including custom preview images and screenshots. The multi-role platform supports dispatchers, technicians, and management with real-time job tracking, PDF report generation, push notifications, and offline sync. Redis-based Query Result Caching on the dashboard is currently in progress — projected to reduce Firestore reads by 60–70% on dashboard load, cutting operational costs and improving response times for high-traffic dispatch windows.',
       },
     ],
-  },
-  {
-    id: 16,
-    slug: 'metrosevn-ecommerce',
-    title: 'MetroSevn Ecommerce',
-    badge: 'SHIPPED',
-    description:
-      'Full-stack e-commerce storefront for MetroSevn, a Lipa-based streetwear brand — built from scratch with React, TypeScript, Supabase, and Zustand. Includes a product catalog, persistent cart, full checkout-to-order flow, and a custom brand identity designed from the ground up.',
-    company: 'MetroSevn',
-    year: '2025',
-    bgColor: '#0d1220',
-    role: 'Full-Stack Developer & Brand Designer',
-
-    platform: 'Web',
-    features: [
-      'Stripe checkout with Edge Function webhook',
-      'Persistent cart via Zustand',
-      'Supabase real-time inventory & auth',
-      'Custom brand design system',
-      'Deployed & SEO-optimized on Vercel',
-    ],
-    overview:
-      'Engineered a custom, ground-up e-commerce platform for a Lipa-based streetwear brand. I was responsible for the entire product lifecycle, covering brand identity, UI/UX design, and the full-stack technical implementation.',
-    sections: [
-      {
-        title: 'The Problem',
-        body: 'The brand lacked a digital footprint and a secure way to process orders. They required a high-performance storefront that reflected their "street-culture" aesthetic — moving away from generic, cookie-cutter templates to a bespoke design system.',
-      },
-      {
-        title: 'Technical Stack',
-        body: 'Frontend: React 19, TypeScript 5.7, Vite 6, Tailwind CSS 3. State & Routing: Zustand (Persisted), React Router DOM v7. Backend & DB: Supabase (PostgreSQL, Auth, Edge Functions). Infrastructure: Deno (Runtime), Vercel (Deployment). Payments: Stripe API integration.',
-      },
-      {
-        title: 'Implementation Details',
-        body: 'Design System: Developed a custom Tailwind configuration featuring a brand-specific palette (ms-blue, ms-black) and a multi-typeface system (Playfair Display / DM Mono). Implemented an animated grain overlay via CSS to achieve a gritty, analog aesthetic. Architecture: Built a component-driven architecture with a focus on type safety and performance. Integrated Supabase for real-time inventory and user authentication. Checkout Flow: Engineered a secure payment pipeline using Supabase Edge Functions (Deno) — Function A handles Stripe Session creation and cart validation; Function B is a webhook listener that processes Stripe events to update order statuses in PostgreSQL. State Management: Utilized Zustand for persistent cart state and implemented a 2-second polling mechanism on the success page to ensure real-time payment confirmation before rendering the receipt.',
-      },
-      {
-        title: 'Outcome',
-        body: 'Delivered a production-ready, SEO-optimized storefront. The final product features a seamless end-to-end user journey — from product discovery and persistent cart management to secure checkout — all while maintaining a cohesive brand identity inspired by local urban culture.',
-      },
-    ],
-    live: 'https://metro-sevn-ecommerce.vercel.app/',
   },
   {
     id: 6,
-    slug: 'ublc-360',
-    title: 'UBLC 360',
-    badge: 'SHIPPED',
-    description:
-      'Interactive virtual tour website for the University of Batangas Learning Commons — immersive 360° panoramic room viewers, an embedded PDF facility guide, and a survey-driven onboarding flow.',
-    company: 'University of Batangas Lipa',
-    year: '2023',
-    bgColor: '#0a1628',
-    thumbnail: '/projects-media/ublc/ublc-thumbnail.gif',
-    images: [
-      '/projects-media/ublc/ublc-page-1.jpg',
-    ],
-    role: 'Frontend Developer & Designer',
-
-    platform: 'Web',
-    features: [
-      'Immersive 360° panoramic room viewers',
-      'Survey-driven onboarding flow',
-      'Embedded PDF facility guide viewer',
-      'Google Analytics integrated',
-      'Fully mobile responsive',
-    ],
-    overview:
-      'UBLC 360 is an interactive virtual tour website for the University of Batangas Lipa Campus\'s Learning Commons facilities. I handled the project from graphic materials through to production — designing visual assets and building the full front-end.',
-    sections: [
-      {
-        title: 'Problem',
-        body: 'Students and visitors had no way to explore campus facilities remotely or in advance, making orientation and navigation difficult without a physical visit.',
-      },
-      {
-        title: 'Process',
-        body: 'Built a static multi-page site with a guided survey flow to personalize the experience, then integrated immersive 360° panoramic room viewers using Panolens.js and Three.js. Added a PDF facility guide viewer via PDF.js and ensured full mobile responsiveness with dedicated CSS breakpoint stylesheets.',
-      },
-      {
-        title: 'Outcome',
-        body: 'Shipped a fully functional virtual campus tour featuring interactive 360° building walkthroughs, an embedded PDF guide viewer, and a survey-driven onboarding flow — giving users an immersive way to explore the campus from any device, tracked via Google Analytics.',
-      },
-    ],
-    live: 'https://ublc-360.vercel.app/',
-  },
-  {
-    id: 7,
     slug: 'dss-brand-identity',
     title: 'DSS Brand Identity',
     badge: 'SHIPPED',
     description:
       'Comprehensive brand identity system for Divine Software Systems — logo architecture, color theory, safe zones, and a 13-page technical brand manual built for scale across digital and print.',
     company: 'Divine Software Systems',
-    year: '2025',
+    year: '2024',
     bgColor: '#0a1828',
     live: 'https://www.divinesoftwaresystems.com/',
     thumbnail: '/projects-media/dss-brand-identity/dss-page-1.jpg',
@@ -391,6 +345,47 @@ export const CARDS: WorkCard[] = [
         body: 'The result is a comprehensive Brand Identity System that is fully production-ready. I delivered a complete kit of parts — from scaling rules (as small as 16px) to a defined color palette (#282828 for depth and #f3f3f3 for clarity). By setting these guardrails, DSS always looks polished and "Divine" regardless of the medium or use case.',
       },
     ],
+  },
+  {
+    id: 7,
+    slug: 'ublc-360',
+    title: 'UBLC 360',
+    badge: 'SHIPPED',
+    description:
+      'Interactive virtual tour website for the University of Batangas Learning Commons — immersive 360° panoramic room viewers, an embedded PDF facility guide, and a survey-driven onboarding flow.',
+    company: 'University of Batangas Lipa',
+    year: '2023',
+    bgColor: '#0a1628',
+    thumbnail: '/projects-media/ublc/ublc-thumbnail.gif',
+    images: [
+      '/projects-media/ublc/ublc-page-1.jpg',
+    ],
+    role: 'Frontend Developer & Designer',
+    platform: 'Web',
+    features: [
+      'Immersive 360° panoramic room viewers',
+      'Survey-driven onboarding flow',
+      'Embedded PDF facility guide viewer',
+      'Google Analytics integrated',
+      'Fully mobile responsive',
+    ],
+    overview:
+      'UBLC 360 is an interactive virtual tour website for the University of Batangas Lipa Campus\'s Learning Commons facilities. I handled the project from graphic materials through to production — designing visual assets and building the full front-end.',
+    sections: [
+      {
+        title: 'Problem',
+        body: 'Students and visitors had no way to explore campus facilities remotely or in advance, making orientation and navigation difficult without a physical visit.',
+      },
+      {
+        title: 'Process',
+        body: 'Built a static multi-page site with a guided survey flow to personalize the experience, then integrated immersive 360° panoramic room viewers using Panolens.js and Three.js. Added a PDF facility guide viewer via PDF.js and ensured full mobile responsiveness with dedicated CSS breakpoint stylesheets.',
+      },
+      {
+        title: 'Outcome',
+        body: 'Shipped a fully functional virtual campus tour featuring interactive 360° building walkthroughs, an embedded PDF guide viewer, and a survey-driven onboarding flow — giving users an immersive way to explore the campus from any device, tracked via Google Analytics.',
+      },
+    ],
+    live: 'https://ublc-360.vercel.app/',
   },
 ]
 

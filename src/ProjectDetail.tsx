@@ -24,6 +24,7 @@ export default function ProjectDetail() {
   const [current, setCurrent] = useState(0)
   const [hovered, setHovered] = useState(false)
   const dragStart = useRef<number>(0)
+  const thumbsRef = useRef<HTMLDivElement>(null)
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + images.length) % images.length), [images.length])
   const next = useCallback(() => setCurrent((c) => (c + 1) % images.length), [images.length])
@@ -33,6 +34,15 @@ export default function ProjectDetail() {
     const delta = e.clientX - dragStart.current
     if (Math.abs(delta) > 40) delta < 0 ? next() : prev()
   }
+
+  const scrollThumbs = (dir: 'left' | 'right') => {
+    thumbsRef.current?.scrollBy({ left: dir === 'right' ? 240 : -240, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const el = thumbsRef.current?.children[current] as HTMLElement | undefined
+    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  }, [current])
 
   useEffect(() => {
     if (!hasImages) return
@@ -48,7 +58,7 @@ export default function ProjectDetail() {
     return (
       <div className="pd-not-found">
         <p>Project not found.</p>
-        <Link to="/">← Back to home</Link>
+        <Link to="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg> Back to home</Link>
       </div>
     )
   }
@@ -66,7 +76,7 @@ export default function ProjectDetail() {
       </svg>
 
       <div className="pd-inner">
-        <Link to="/" className="pd-back">← Back</Link>
+        <Link to="/" className="pd-back"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg> Back</Link>
 
         <div className="pd-columns">
 
@@ -107,17 +117,18 @@ export default function ProjectDetail() {
               )}
             </div>
 
-            {/* Dot indicators */}
+            {/* Thumbnail filmstrip */}
             {hasImages && images.length > 1 && (
-              <div className="pd-thumbs">
-                {images.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`pd-thumb-dot${i === current ? ' pd-thumb-dot-active' : ''}`}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Go to image ${i + 1}`}
-                  />
-                ))}
+              <div className="pd-thumbs-wrap">
+                <button className="pd-thumbs-nav" onClick={() => scrollThumbs('left')} aria-label="Scroll left">‹</button>
+                <div className="pd-thumbs" ref={thumbsRef}>
+                  {images.map((src, i) => (
+                    <button key={i} className={`pd-thumb${i === current ? ' pd-thumb-active' : ''}`} onClick={() => setCurrent(i)}>
+                      <img src={src} alt={`thumb ${i + 1}`} />
+                    </button>
+                  ))}
+                </div>
+                <button className="pd-thumbs-nav" onClick={() => scrollThumbs('right')} aria-label="Scroll right">›</button>
               </div>
             )}
 

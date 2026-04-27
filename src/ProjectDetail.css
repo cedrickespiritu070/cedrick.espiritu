@@ -87,6 +87,7 @@
   flex-direction: column;
   gap: 24px;
   padding-right: 56px;
+  min-width: 0;
 }
 
 @media (max-width: 900px) {
@@ -166,27 +167,90 @@
 .pd-arrow-right { right: 12px; }
 
 /* ── Thumbnails ── */
+.pd-thumbs-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+.pd-thumbs-nav {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.45);
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+}
+.pd-thumbs-nav:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
+}
 .pd-thumbs {
   display: flex;
   gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  flex: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.pd-thumb-dot {
+.pd-thumbs::-webkit-scrollbar { display: none; }
+.pd-thumb {
   flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.18);
-  border: none;
-  padding: 0;
+  width: 64px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.5;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  background: none;
+  padding: 0;
 }
-.pd-thumb-dot:hover { background: rgba(0, 0, 0, 0.4); }
-.pd-thumb-dot-active {
-  background: rgba(0, 0, 0, 0.7);
-  transform: scale(1.4);
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pd-thumb:hover { opacity: 0.8; }
+.pd-thumb-active {
+  border-color: rgba(0, 0, 0, 0.35);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .pd-thumbs-wrap {
+    gap: 4px;
+    width: 100%;
+  }
+  .pd-thumbs-nav {
+    width: 24px;
+    height: 24px;
+    font-size: 15px;
+  }
+  .pd-thumb {
+    width: 52px;
+    height: 36px;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-thumb {
+    width: 44px;
+    height: 30px;
+    border-radius: 5px;
+  }
 }
 
 /* ── Title + Badge ── */
