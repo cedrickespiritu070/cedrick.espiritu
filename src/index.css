@@ -1,27 +1,119 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-*, *::before, *::after { box-sizing: border-box; }
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
 
-:root {
-  font-family: 'Manrope', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  :root {
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: #f1f1ee;
+    color: #000;
+  }
+
+  .dark body {
+    background-color: #111110;
+    color: #fff;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100svh;
+  }
+
+  h1, h2, h3, h4, h5, h6, p { margin: 0; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+  button { cursor: pointer; border: none; background: none; font: inherit; padding: 0; }
+  ul, li { list-style: none; margin: 0; padding: 0; }
 }
 
-body {
-  margin: 0;
-  background-color: #f1f1ee;
-  color: #000;
+/* ============================================================
+   CSS-ONLY — Tailwind cannot express these
+   ============================================================ */
+
+/* SVG filter url() references — Tailwind filter utilities only support predefined functions */
+.hero-h1-layer-base {
+  filter: url(#grain-edge) blur(1.5px);
 }
 
-
-#root {
-  width: 100%;
-  min-height: 100svh;
+.hero-h1-layer-top {
+  filter: url(#grain-edge) blur(12px);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 30%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 30%);
 }
 
-h1, h2, h3, h4, h5, h6, p { margin: 0; }
-a { text-decoration: none; color: inherit; }
-img { display: block; max-width: 100%; }
-button { cursor: pointer; border: none; background: none; font: inherit; padding: 0; }
-ul, li { list-style: none; margin: 0; padding: 0; }
+.vblur {
+  filter: url(#vblur-filter);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
+}
+
+.about-vblur {
+  filter: url(#vblur-filter);
+}
+
+/* Avatar scalloped shape — 20+ calc(var(--s)*n) mask layers, impossible in Tailwind */
+.hero-avatar,
+.hero-avatar-fallback {
+  --s: 165px;
+  width: var(--s);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  --g: /calc(var(--s)*0.194) calc(var(--s)*0.194) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
+  mask:
+    calc(50% + var(--s)*0.374)  calc(50% + var(--s)*0)      var(--g),
+    calc(50% + var(--s)*0.303)  calc(50% + var(--s)*0.22)   var(--g),
+    calc(50% + var(--s)*0.116)  calc(50% + var(--s)*0.356)  var(--g),
+    calc(50% + var(--s)*-0.116) calc(50% + var(--s)*0.356)  var(--g),
+    calc(50% + var(--s)*-0.303) calc(50% + var(--s)*0.22)   var(--g),
+    calc(50% + var(--s)*-0.374) calc(50% + var(--s)*0)      var(--g),
+    calc(50% + var(--s)*-0.303) calc(50% + var(--s)*-0.22)  var(--g),
+    calc(50% + var(--s)*-0.116) calc(50% + var(--s)*-0.356) var(--g),
+    calc(50% + var(--s)*0.116)  calc(50% + var(--s)*-0.356) var(--g),
+    calc(50% + var(--s)*0.303)  calc(50% + var(--s)*-0.22)  var(--g),
+    radial-gradient(calc(var(--s)*0.438),#000 99%,#0000 101%) subtract,
+    calc(50% + var(--s)*0.487)  calc(50% + var(--s)*0.158)  var(--g),
+    calc(50% + var(--s)*0.301)  calc(50% + var(--s)*0.414)  var(--g),
+    calc(50% + var(--s)*0)      calc(50% + var(--s)*0.512)  var(--g),
+    calc(50% + var(--s)*-0.301) calc(50% + var(--s)*0.414)  var(--g),
+    calc(50% + var(--s)*-0.487) calc(50% + var(--s)*0.158)  var(--g),
+    calc(50% + var(--s)*-0.487) calc(50% + var(--s)*-0.158) var(--g),
+    calc(50% + var(--s)*-0.301) calc(50% + var(--s)*-0.414) var(--g),
+    calc(50% + var(--s)*0)      calc(50% + var(--s)*-0.512) var(--g),
+    calc(50% + var(--s)*0.301)  calc(50% + var(--s)*-0.414) var(--g),
+    calc(50% + var(--s)*0.487)  calc(50% + var(--s)*-0.158) var(--g);
+}
+
+/* Scrollbar hiding — ::-webkit-scrollbar pseudo-element has no Tailwind equivalent */
+.pd-thumbs {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.pd-thumbs::-webkit-scrollbar { display: none; }
+
+/* :nth-child(n+4) range selector — Tailwind doesn't support n+ syntax */
+@media (max-width: 900px) {
+  .about-carousel-item:nth-child(n+4) { display: none; }
+}
+
+/* ============================================================
+   NAVBAR DARK OVERRIDES — applied here so Navbar.css stays untouched
+   ============================================================ */
+.dark .navbar-link { color: rgba(255,255,255,0.45); }
+.dark .navbar-link:hover { background-color: rgba(255,255,255,0.1); color: #fff; }
+.dark .navbar-link--active { background-color: rgba(255,255,255,0.15); color: #fff; }
+.dark .navbar-hamburger span { background: #fff; }
+.dark {
+  background: rgba(17,17,16,0.97);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+/* Project detail mobile bar background — needs dark variant, inline style can't do it */
+.pd-mobile-bar { background: rgba(241,241,238,0.92); }
+.dark .pd-mobile-bar { background: rgba(17,17,16,0.92); }

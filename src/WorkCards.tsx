@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import './WorkCards.css'
 
 export type BadgeType = 'SHIPPED' | 'ACQUIRED' | 'CONCEPT' | 'WINNER'
 
@@ -210,7 +209,7 @@ export const CARDS: WorkCard[] = [
     badge: 'SHIPPED',
     description:
       'High-performance digital ticketing and e-wallet platform for live events in the Philippines and the US — mobile-first, cashless, with real-time analytics and Stripe-powered payments.',
-    company: 'Tulay',
+    company: 'Divine Software Systems',
     year: '2024',
     bgColor: '#2a1a0e',
     live: 'https://www.tulayticketing.com/',
@@ -231,7 +230,6 @@ export const CARDS: WorkCard[] = [
       'Dynamic QR code ticketing',
       'Stripe-powered secure payments',
       'Real-time sales analytics dashboard',
-      'GCash & Maya compatible',
       'Mobile-first cashless experience',
     ],
     overview:
@@ -389,49 +387,47 @@ export const CARDS: WorkCard[] = [
   },
 ]
 
-const BADGE_COLORS: Record<BadgeType, string> = {
-  SHIPPED: 'rgba(0,0,0,0.07)',
-  ACQUIRED: 'rgba(0,0,0,0.07)',
-  CONCEPT: 'rgba(0,0,0,0.07)',
-  WINNER: 'rgba(255, 200, 0, 0.2)',
+const BADGE_CLASSES: Record<BadgeType, string> = {
+  SHIPPED: 'bg-black/7 dark:bg-white/10',
+  ACQUIRED: 'bg-black/7 dark:bg-white/10',
+  CONCEPT: 'bg-black/7 dark:bg-white/10',
+  WINNER: 'bg-[rgba(255,200,0,0.2)]',
 }
 
 export default function WorkCards() {
   return (
-    <section className="work-section">
-      <div className="work-grid">
+    <section className="bg-[#f1f1ee] dark:bg-[#111110] border-t border-black/10 dark:border-white/10">
+      <div className="grid grid-cols-3 px-12 pt-12 pb-20 gap-y-10 gap-x-8 max-[960px]:grid-cols-2 max-[960px]:px-6 max-[960px]:pt-8 max-[960px]:pb-[60px] max-[960px]:gap-y-8 max-[960px]:gap-x-5 max-[600px]:grid-cols-1 max-[600px]:px-5 max-[600px]:pt-6 max-[600px]:pb-12">
         {CARDS.map((card) => (
           <Link
             key={card.id}
             to={`/projects/${card.slug}`}
-            className="work-card"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            className="flex flex-col cursor-pointer transition-opacity duration-[250ms] hover:opacity-85"
           >
             <div
-              className="work-card-thumb"
+              className="w-full h-[280px] rounded-xl overflow-hidden shrink-0 relative"
               style={{ backgroundColor: card.bgColor }}
             >
               {card.thumbnail && (
                 <img
                   src={card.thumbnail}
                   alt={card.title}
-                  className="work-card-thumb-img"
+                  className="w-full h-full object-cover object-top block"
                 />
               )}
             </div>
-            <div className="work-card-body">
-              <div className="work-card-header">
-                <h3 className="work-card-title">{card.title}</h3>
+            <div className="pt-4 flex flex-col gap-2">
+              <div className="flex items-center gap-[10px] flex-wrap">
+                <h3 className="text-[18px] font-bold text-black dark:text-white leading-[1.2] tracking-[-0.2px]">{card.title}</h3>
                 <span
-                  className="work-card-badge"
-                  style={{ backgroundColor: BADGE_COLORS[card.badge] }}
+                  className={`text-[11px] font-semibold text-black/60 dark:text-white/60 px-[10px] py-[3px] rounded-full tracking-[0.3px] whitespace-nowrap shrink-0 ${BADGE_CLASSES[card.badge]}`}
                 >
                   {card.badge} ↗
                 </span>
               </div>
-              <p className="work-card-desc">{card.description}</p>
-              <p className="work-card-meta">
-                {card.company} <span className="work-card-dot">·</span> {card.year}
+              <p className="text-sm leading-[1.6] text-black/50 dark:text-white/50 line-clamp-3">{card.description}</p>
+              <p className="text-[13px] text-black/45 dark:text-white/45 font-medium mt-1">
+                {card.company} <span className="mx-1 opacity-50">·</span> {card.year}
               </p>
             </div>
           </Link>
