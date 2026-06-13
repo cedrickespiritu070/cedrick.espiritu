@@ -7,6 +7,7 @@ import WorkCards from './WorkCards'
 import About from './About'
 import Resume from './Resume'
 import ProjectDetail from './ProjectDetail'
+import Skills from './Skills'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,6 +19,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <Skills />
       <WorkCards />
     </>
   )

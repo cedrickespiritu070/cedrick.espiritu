@@ -30,6 +30,49 @@ export interface WorkCard {
 export const CARDS: WorkCard[] = [
   {
     id: 0,
+    slug: 'metrosevn-ecommerce',
+    title: 'MetroSevn Ecommerce',
+    badge: 'SHIPPED',
+    description:
+      'Full-stack e-commerce storefront for MetroSevn, a Lipa-based streetwear brand — built from scratch with React, TypeScript, and Supabase. Features a Stripe-integrated checkout pipeline, product catalog, persistent cart, and a custom brand identity designed from the ground up.',
+    company: 'MetroSevn',
+    year: '2026',
+    bgColor: '#0d1220',
+    thumbnail: '/projects-media/metrosevn/metrosevn-thumbnail2.jpg',
+    role: 'Full-Stack Developer & Brand Designer',
+    platform: 'Web',
+    features: [
+      'Stripe checkout pipeline with Edge Function webhook',
+      'Session management via Zustand + AWS Cognito',
+      'AWS RDS PostgreSQL (VPC-isolated) for inventory',
+      'AWS Cognito with Google OAuth federation',
+      'Custom brand design system',
+      'Deployed on AWS Amplify + Lambda + API Gateway',
+    ],
+    overview:
+      'Engineered a custom, ground-up e-commerce platform for a Lipa-based streetwear brand. I was responsible for the entire product lifecycle, covering brand identity, UI/UX design, and the full-stack technical implementation.',
+    sections: [
+      {
+        title: 'The Problem',
+        body: 'The brand lacked a digital footprint and a secure way to process orders. They required a high-performance storefront that reflected their "street-culture" aesthetic — moving away from generic, cookie-cutter templates to a bespoke design system.',
+      },
+      {
+        title: 'Technical Stack',
+        body: 'Frontend: React 19, TypeScript 5.7, Vite 6, Tailwind CSS 3. State & Routing: React Router DOM v7, Zustand. Backend: AWS Lambda (Node.js 20.x) + Express.js via serverless-http, deployed with Serverless Framework. Database: AWS RDS PostgreSQL 17 (VPC-isolated). Auth: AWS Cognito (Hosted UI, PKCE auth-code flow, Google OAuth federation). Storage & CDN: AWS S3 + CloudFront. Infrastructure: AWS Amplify (frontend hosting), AWS API Gateway HTTP API, AWS SSM Parameter Store (secrets).',
+      },
+      {
+        title: 'Implementation Details',
+        body: 'Design System: Developed a custom Tailwind configuration featuring a brand-specific palette (ms-blue, ms-black) and a multi-typeface system (Playfair Display / DM Mono). Implemented an animated grain overlay via CSS to achieve a gritty, analog aesthetic. Architecture: Migrated from Supabase to a fully AWS-native infrastructure. The backend is split across two Lambda functions: a non-VPC API Lambda handling TikTok integration and admin operations, and a VPC-isolated data Lambda with a private path to RDS (no NAT Gateway). Both are fronted by a single AWS HTTP API Gateway. Server-to-server calls between the two functions are authenticated via a shared secret stored in SSM. Auth: Replaced Supabase Auth with AWS Cognito Hosted UI. Implemented a dependency-free PKCE OIDC client on the frontend. The VPC data Lambda verifies Cognito RS256 ID tokens against JWKS baked into SSM at deploy time (no internet egress required). Google OAuth is handled via Cognito Identity Provider federation. Secrets Management: All credentials (DB password, OAuth secrets, internal API secret, JWKS) are stored as SecureStrings in AWS SSM Parameter Store and injected into Lambda environment variables at deploy time via Serverless Framework. State Management: Utilized Zustand for persistent cart state.',
+      },
+      {
+        title: 'Outcome',
+        body: 'Delivered a production-ready, SEO-optimized storefront. The final product features a seamless end-to-end user journey — from product discovery and persistent cart management to secure checkout — all while maintaining a cohesive brand identity inspired by local urban culture.',
+      },
+    ],
+    live: 'https://main.d2qdwnnlnucxe9.amplifyapp.com/',
+  },
+  {
+    id: 1,
     slug: 'trackshot',
     title: 'TrackShot',
     badge: 'SHIPPED',
@@ -74,48 +117,6 @@ export const CARDS: WorkCard[] = [
         body: 'TrackShot shipped to both the App Store and Google Play. The app handles 40+ tournament formats with live scoring, real-time leaderboard updates, a full handicap system with 14 allowance types, 7 tiebreaker methods, and team/side game management. The Redis leaderboard caching integration is in active development and will significantly reduce database load as the user base grows.',
       },
     ],
-  },
-  {
-    id: 1,
-    slug: 'metrosevn-ecommerce',
-    title: 'MetroSevn Ecommerce',
-    badge: 'SHIPPED',
-    description:
-      'Full-stack e-commerce storefront for MetroSevn, a Lipa-based streetwear brand — built from scratch with React, TypeScript, and Supabase. Features a Stripe-integrated checkout pipeline, product catalog, persistent cart, and a custom brand identity designed from the ground up.',
-    company: 'MetroSevn',
-    year: '2026',
-    bgColor: '#0d1220',
-    thumbnail: '/projects-media/metrosevn/metrosevn-thumbnail.jpg',
-    role: 'Full-Stack Developer & Brand Designer',
-    platform: 'Web',
-    features: [
-      'Stripe checkout pipeline with Edge Function webhook',
-      'Persistent cart & session management',
-      'Supabase real-time inventory & auth',
-      'Custom brand design system',
-      'Deployed & SEO-optimized on Vercel',
-    ],
-    overview:
-      'Engineered a custom, ground-up e-commerce platform for a Lipa-based streetwear brand. I was responsible for the entire product lifecycle, covering brand identity, UI/UX design, and the full-stack technical implementation.',
-    sections: [
-      {
-        title: 'The Problem',
-        body: 'The brand lacked a digital footprint and a secure way to process orders. They required a high-performance storefront that reflected their "street-culture" aesthetic — moving away from generic, cookie-cutter templates to a bespoke design system.',
-      },
-      {
-        title: 'Technical Stack',
-        body: 'Frontend: React 19, TypeScript 5.7, Vite 6, Tailwind CSS 3. State & Routing: React Router DOM v7. Backend & DB: Supabase (PostgreSQL, Auth, Edge Functions). Infrastructure: Deno (Runtime), Vercel (Deployment). Payments: Stripe API (sandbox).',
-      },
-      {
-        title: 'Implementation Details',
-        body: 'Design System: Developed a custom Tailwind configuration featuring a brand-specific palette (ms-blue, ms-black) and a multi-typeface system (Playfair Display / DM Mono). Implemented an animated grain overlay via CSS to achieve a gritty, analog aesthetic. Architecture: Built a component-driven architecture with a focus on type safety and performance. Integrated Supabase for real-time inventory and user authentication. Checkout Flow: Engineered a secure payment pipeline using Supabase Edge Functions (Deno) — Function A handles Stripe Session creation and cart validation; Function B is a webhook listener that processes Stripe events to update order statuses in PostgreSQL. State Management: Utilized Zustand for persistent cart state and implemented a 2-second polling mechanism on the success page to ensure real-time payment confirmation before rendering the receipt.',
-      },
-      {
-        title: 'Outcome',
-        body: 'Delivered a production-ready, SEO-optimized storefront. The final product features a seamless end-to-end user journey — from product discovery and persistent cart management to secure checkout — all while maintaining a cohesive brand identity inspired by local urban culture.',
-      },
-    ],
-    live: 'https://metro-sevn-ecommerce.vercel.app/',
   },
   {
     id: 2,

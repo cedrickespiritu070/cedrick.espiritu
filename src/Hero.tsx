@@ -108,8 +108,8 @@ export default function Hero() {
           </div>
           <div className="flex flex-col gap-[3px]">
             <span className="text-[15px] font-bold text-black dark:text-white">Featured Work</span>
-            <Link to="/projects/trackshot" className="text-[15px] text-black/45 dark:text-white/45 transition-colors duration-200 hover:text-black dark:hover:text-white">
-              TrackShot ↗
+            <Link to="/projects/metrosevn-ecommerce" className="text-[15px] text-black/45 dark:text-white/45 transition-colors duration-200 hover:text-black dark:hover:text-white">
+              MetroSevn ↗
             </Link>
           </div>
         </div>

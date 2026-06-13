@@ -1,0 +1,117 @@
+import {
+  SiReact, SiTypescript, SiVite, SiTailwindcss, SiReactrouter,
+  SiExpo, SiNodedotjs, SiExpress, SiServerless, SiLaravel, SiPhp,
+  SiPostgresql, SiSupabase, SiFirebase, SiRedis,
+  SiFigma, SiJavascript, SiHtml5, SiCss,
+} from 'react-icons/si'
+import { FaAws } from 'react-icons/fa'
+import type { IconType } from 'react-icons'
+
+interface Skill {
+  label: string
+  icon?: IconType
+  color?: string
+  img?: string
+}
+
+const SKILLS: { category: string; items: Skill[] }[] = [
+  {
+    category: 'Frontend',
+    items: [
+      { label: 'React',        icon: SiReact,       color: '#61DAFB' },
+      { label: 'TypeScript',   icon: SiTypescript,  color: '#3178C6' },
+      { label: 'Vite',         icon: SiVite,        color: '#646CFF' },
+      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+      { label: 'React Router', icon: SiReactrouter, color: '#CA4245' },
+      { label: 'Zustand' },
+    ],
+  },
+  {
+    category: 'Mobile',
+    items: [
+      { label: 'React Native', icon: SiReact,       color: '#61DAFB' },
+      { label: 'Expo',         icon: SiExpo,        color: '#ffffff' },
+      { label: 'Expo Router',  icon: SiExpo,        color: '#ffffff' },
+      { label: 'NativeWind',   icon: SiTailwindcss, color: '#06B6D4' },
+    ],
+  },
+  {
+    category: 'Backend & Cloud',
+    items: [
+      { label: 'Node.js',              icon: SiNodedotjs,  color: '#339933' },
+      { label: 'Express',              icon: SiExpress,    color: '#888888' },
+      { label: 'AWS Lambda',           icon: FaAws,        color: '#FF9900' },
+      { label: 'API Gateway',          icon: FaAws,        color: '#FF9900' },
+      { label: 'S3 & CloudFront',      icon: FaAws,        color: '#FF9900' },
+      { label: 'AWS Amplify',          icon: FaAws,        color: '#FF9900' },
+      { label: 'Serverless Framework', icon: SiServerless, color: '#FD5750' },
+      { label: 'Laravel',              icon: SiLaravel,    color: '#FF2D20' },
+      { label: 'PHP',                  icon: SiPhp,        color: '#777BB4' },
+    ],
+  },
+  {
+    category: 'Database & Auth',
+    items: [
+      { label: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { label: 'Supabase',   icon: SiSupabase,   color: '#3ECF8E' },
+      { label: 'Firebase',   icon: SiFirebase,   color: '#FFCA28' },
+      { label: 'Redis',      icon: SiRedis,      color: '#FF4438' },
+      { label: 'AWS RDS',    icon: FaAws,        color: '#FF9900' },
+      { label: 'AWS Cognito',icon: FaAws,        color: '#FF9900' },
+    ],
+  },
+  {
+    category: 'Design',
+    items: [
+      { label: 'Figma',       icon: SiFigma, color: '#F24E1E' },
+      { label: 'Photoshop',   img: 'https://skillicons.dev/icons?i=ps' },
+      { label: 'Illustrator', img: 'https://skillicons.dev/icons?i=ai' },
+    ],
+  },
+  {
+    category: 'Languages',
+    items: [
+      { label: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+      { label: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+      { label: 'PHP',        icon: SiPhp,        color: '#777BB4' },
+      { label: 'HTML',       icon: SiHtml5,      color: '#E34F26' },
+      { label: 'CSS',        icon: SiCss,        color: '#1572B6' },
+    ],
+  },
+]
+
+export default function Skills() {
+  return (
+    <section className="bg-[#f1f1ee] dark:bg-[#111110] border-t border-black/10 dark:border-white/10 px-12 py-14 max-[900px]:px-6 max-[900px]:py-10 max-[480px]:px-5">
+      <div className="max-w-[1248px] mx-auto">
+        <p className="text-[13px] font-semibold tracking-[0.08em] uppercase text-black/35 dark:text-white/35 mb-8">
+          Tech & Tools
+        </p>
+        <div className="grid grid-cols-3 gap-x-10 gap-y-10 max-[900px]:grid-cols-2 max-[480px]:grid-cols-1">
+          {SKILLS.map((group) => (
+            <div key={group.category}>
+              <p className="text-[13px] font-bold text-black/40 dark:text-white/40 mb-3 uppercase tracking-[0.06em]">
+                {group.category}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item.label}
+                    className="flex items-center gap-[7px] text-[13px] font-medium text-black/70 dark:text-white/60 bg-black/[0.06] dark:bg-white/[0.07] px-3 py-[5px] rounded-full"
+                  >
+                    {item.img ? (
+                      <img src={item.img} alt={item.label} width={13} height={13} style={{ flexShrink: 0 }} />
+                    ) : item.icon ? (
+                      <item.icon size={13} color={item.color} style={{ flexShrink: 0 }} />
+                    ) : null}
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
