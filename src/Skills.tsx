@@ -3,6 +3,10 @@ import {
   SiExpo, SiNodedotjs, SiExpress, SiServerless, SiLaravel, SiPhp,
   SiPostgresql, SiSupabase, SiFirebase, SiRedis,
   SiFigma, SiJavascript, SiHtml5, SiCss,
+  SiNextdotjs, SiVuedotjs,
+  SiGooglecloud, SiVercel, SiTurborepo,
+  SiDocker, SiGithub, SiPostman, SiJira,
+  SiStripe, SiMeta, SiTiktok,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
@@ -23,6 +27,8 @@ const SKILLS: { category: string; items: Skill[] }[] = [
       { label: 'Vite',         icon: SiVite,        color: '#646CFF' },
       { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
       { label: 'React Router', icon: SiReactrouter, color: '#CA4245' },
+      { label: 'Next.js',      icon: SiNextdotjs,   color: '#ffffff' },
+      { label: 'Vue',          icon: SiVuedotjs,    color: '#4FC08D' },
       { label: 'Zustand' },
     ],
   },
@@ -44,9 +50,12 @@ const SKILLS: { category: string; items: Skill[] }[] = [
       { label: 'API Gateway',          icon: FaAws,        color: '#FF9900' },
       { label: 'S3 & CloudFront',      icon: FaAws,        color: '#FF9900' },
       { label: 'AWS Amplify',          icon: FaAws,        color: '#FF9900' },
-      { label: 'Serverless Framework', icon: SiServerless, color: '#FD5750' },
-      { label: 'Laravel',              icon: SiLaravel,    color: '#FF2D20' },
-      { label: 'PHP',                  icon: SiPhp,        color: '#777BB4' },
+      { label: 'Serverless Framework', icon: SiServerless,  color: '#FD5750' },
+      { label: 'GCP',                  icon: SiGooglecloud, color: '#4285F4' },
+      { label: 'Vercel',               icon: SiVercel,      color: '#ffffff' },
+      { label: 'Turborepo',            icon: SiTurborepo,   color: '#EF4444' },
+      { label: 'Laravel',              icon: SiLaravel,     color: '#FF2D20' },
+      { label: 'PHP',                  icon: SiPhp,         color: '#777BB4' },
     ],
   },
   {
@@ -63,9 +72,27 @@ const SKILLS: { category: string; items: Skill[] }[] = [
   {
     category: 'Design',
     items: [
-      { label: 'Figma',       icon: SiFigma, color: '#F24E1E' },
+      { label: 'Figma',       icon: SiFigma,          color: '#F24E1E' },
       { label: 'Photoshop',   img: 'https://skillicons.dev/icons?i=ps' },
       { label: 'Illustrator', img: 'https://skillicons.dev/icons?i=ai' },
+    ],
+  },
+  {
+    category: 'DevOps & Tools',
+    items: [
+      { label: 'Docker',  icon: SiDocker,  color: '#2496ED' },
+      { label: 'GitHub',  icon: SiGithub,  color: '#ffffff' },
+      { label: 'Postman', icon: SiPostman, color: '#FF6C37' },
+      { label: 'Jira',    icon: SiJira,    color: '#0052CC' },
+      { label: 'CI/CD' },
+    ],
+  },
+  {
+    category: 'API Integrations',
+    items: [
+      { label: 'Stripe API',       icon: SiStripe, color: '#635BFF' },
+      { label: 'Meta Graph API',   icon: SiMeta,   color: '#0082FB' },
+      { label: 'TikTok Shop API',  icon: SiTiktok, color: '#EE1D52' },
     ],
   },
   {
