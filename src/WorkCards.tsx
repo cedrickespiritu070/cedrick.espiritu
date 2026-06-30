@@ -73,6 +73,47 @@ export const CARDS: WorkCard[] = [
   },
   {
     id: 1,
+    slug: 'sony-a7r3',
+    title: 'Sony α7R III Showcase',
+    badge: 'SHIPPED',
+    description:
+      'A cinematic, scroll-driven product showcase for the Sony α7R III. Features a 1200vh GSAP scroll journey, HTML5 Canvas frame sequence playback, and an interactive Three.js 3D model.',
+    company: 'Personal Project',
+    year: '2026',
+    bgColor: '#0c0c0c',
+    thumbnail: '/projects-media/sony-a7r3/sony-a7r3.gif',
+    role: 'Frontend Developer',
+    platform: 'Web',
+    overview:
+      'Built as a personal creative project to explore advanced scroll engineering and 3D rendering in the browser. The goal was to present the Sony α7R III through a cinematic, data-driven layout — translating camera specifications into motion and spatial depth.',
+    features: [
+      'GSAP ScrollTrigger scroll journey across 1200vh',
+      'HTML5 Canvas frame sequence playback (300 ImageBitmap frames)',
+      'Three.js 3D camera model with scroll-driven rotation and mouse parallax',
+      'Horizontal feature panels with scroll pinning',
+      'Lenis smooth scroll paired with GSAP scrub',
+    ],
+    sections: [
+      {
+        title: 'The Concept',
+        body: 'A personal project built to push what\'s possible in the browser — scroll-synchronized frame sequences, a live 3D model, and cinematic spec reveals, all centered on the Sony α7R III. The camera\'s specs became the content; the scroll became the interaction.',
+      },
+      {
+        title: 'Technical Approach',
+        body: 'The main challenge was synchronizing three animation systems without jank: Lenis smooth scroll, GSAP ScrollTrigger, and Three.js RAF. Frame sequence playback uses 300 JPEGs preloaded as ImageBitmap objects (GPU-resident, zero CPU decode cost at runtime) rendered onto a sticky HTML5 Canvas. The 3D section drives a GLTF camera model via a shared mutable ref so scroll progress updates the ref each frame without triggering React re-renders.',
+      },
+      {
+        title: 'Outcome',
+        body: 'Shipped a fully interactive product showcase to Vercel — complete with the 1200vh scroll journey, Three.js 3D explore section, horizontal panels, and animated spec callouts. The project demonstrates end-to-end ownership of a complex, performance-sensitive animation system in Next.js.',
+      },
+    ],
+    links: [
+      { label: 'Live Site', url: 'https://sony-alpha.vercel.app/' },
+      { label: 'GitHub', url: 'https://github.com/cedrickespiritu070/sony-a7r3' },
+    ],
+  },
+  {
+    id: 2,
     slug: 'trackshot',
     title: 'TrackShot',
     badge: 'SHIPPED',
@@ -119,7 +160,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     slug: 'parish-connect',
     title: 'Parish Connect',
     badge: 'SHIPPED',
@@ -163,7 +204,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     slug: 'rfv-allianz',
     title: 'RFV Allianz App',
     badge: 'SHIPPED',
@@ -204,7 +245,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     slug: 'tulay-app',
     title: 'Tulay App',
     badge: 'SHIPPED',
@@ -251,7 +292,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     slug: 'wings-of-angels',
     title: 'Wings of Angels Transport',
     badge: 'SHIPPED',
@@ -294,7 +335,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     slug: 'dss-brand-identity',
     title: 'DSS Brand Identity',
     badge: 'SHIPPED',
@@ -346,7 +387,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     slug: 'ublc-360',
     title: 'UBLC 360',
     badge: 'SHIPPED',

@@ -7,6 +7,7 @@ import {
   SiGooglecloud, SiVercel, SiTurborepo,
   SiDocker, SiGithub, SiPostman, SiJira,
   SiStripe, SiMeta, SiTiktok,
+  SiGreensock, SiThreedotjs,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
@@ -29,6 +30,9 @@ const SKILLS: { category: string; items: Skill[] }[] = [
       { label: 'React Router', icon: SiReactrouter, color: '#CA4245' },
       { label: 'Next.js',      icon: SiNextdotjs,   color: '#ffffff' },
       { label: 'Vue',          icon: SiVuedotjs,    color: '#4FC08D' },
+      { label: 'GSAP',         icon: SiGreensock,   color: '#88CE02' },
+      { label: 'Three.js',     icon: SiThreedotjs,  color: '#ffffff' },
+      { label: 'Lenis' },
       { label: 'Zustand' },
     ],
   },
