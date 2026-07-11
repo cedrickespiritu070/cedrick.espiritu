@@ -7,7 +7,12 @@
       "Bash(npm install *)",
       "Bash(npx tsc *)",
       "Bash(npm run *)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(git -C \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\sony-a7r3\" log --oneline -10)",
+      "Bash(git -C \"C:\\\\Users\\\\cedri\\\\OneDrive\\\\Desktop\\\\clonedrepo\\\\sony-a7r3\" remote -v)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

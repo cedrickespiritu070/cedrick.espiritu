@@ -30,6 +30,56 @@ export interface WorkCard {
 export const CARDS: WorkCard[] = [
   {
     id: 0,
+    slug: 'kadora-digital',
+    title: 'Kadora Digital',
+    badge: 'SHIPPED',
+    description:
+      'Full-stack agency operations platform combining a public marketing site, branded client portal, and internal admin workspace. Centralizes onboarding, ticketing, scheduling, billing visibility, and brand-aware AI asset generation in one system.',
+    company: 'Personal Project',
+    year: '2026',
+    bgColor: '#031417',
+    thumbnail: '/projects-media/kadora/kadora-thumbnail.jpg',
+    images: [
+      '/projects-media/kadora/01-landing-clean.png',
+      '/projects-media/kadora/02-dashboard-clean.png',
+      '/projects-media/kadora/03-tickets-clean.png',
+      '/projects-media/kadora/04-ai-clean.png',
+      '/projects-media/kadora/05-what-we-do-clean.png',
+      '/projects-media/kadora/06-how-it-works-clean.png',
+      '/projects-media/kadora/07-pricing-clean.png',
+    ],
+    role: 'Product Designer & Full-Stack Developer',
+    platform: 'Web',
+    features: [
+      'Branded onboarding and role-aware client workspace',
+      'Creative ticketing, session booking, and comment threads',
+      'Admin dashboard with kanban workflows and team assignment',
+      'Brand-aware AI image generation with credit-based limits',
+      'Content calendar, billing visibility, and plan-based gating',
+    ],
+    overview:
+      'Kadora Digital is a full-stack platform built for a creative services business, combining a public marketing site, client portal, and internal admin workspace. I designed and built the system to unify client communication, structured service requests, scheduling, billing visibility, and branded AI-assisted creative generation in one operational layer.',
+    sections: [
+      {
+        title: 'The Problem',
+        body: 'Creative service operations often become fragmented across chat threads, email, spreadsheets, and disconnected tools. That makes it harder for clients to submit requests clearly, track progress, and stay aligned, while internal teams lose operational visibility across assignments, approvals, scheduling, and delivery workflows.',
+      },
+      {
+        title: 'Technical Stack',
+        body: 'Frontend: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Radix UI, dnd-kit, react-dropzone. Backend: Supabase Auth, PostgreSQL, Supabase Storage, server actions, and route handlers. AI: Claude Haiku for product and prompt analysis, fal.ai pipelines for GPT-Image-2, FLUX Schnell, and Ideogram-based generation flows. Infra and services: Resend for transactional email, Sharp for image processing, and role-based route protection built around a multi-surface App Router architecture.',
+      },
+      {
+        title: 'Implementation Details',
+        body: 'The platform is structured into three distinct surfaces: a public marketing site, a client dashboard, and an internal admin workspace, all within one Next.js App Router codebase. I implemented role-aware routing and protected flows for onboarding, ticket operations, calendar visibility, and internal team access. On the client side, users can submit creative requests, upload attachments, monitor schedules, view billing tiers, and generate branded AI visuals. On the admin side, the team can manage clients, move tickets through kanban workflows, assign work by talent, coordinate operational bookings, and oversee content planning. The AI system is brand-aware: it uses stored business context, logos, reference imagery, credit limits, and generation history to produce outputs that align with each client profile rather than generic prompts.',
+      },
+      {
+        title: 'Outcome',
+        body: 'Kadora Digital became a unified operating layer for the business, replacing fragmented tools with one structured platform. The result is a clearer client experience, stronger internal workflow control, and a scalable foundation for expanding creative, web, and AI-powered service offerings under a single branded product.',
+      },
+    ],
+  },
+  {
+    id: 1,
     slug: 'metrosevn-ecommerce',
     title: 'MetroSevn Ecommerce',
     badge: 'SHIPPED',
@@ -72,7 +122,7 @@ export const CARDS: WorkCard[] = [
     live: 'https://main.d2qdwnnlnucxe9.amplifyapp.com/',
   },
   {
-    id: 1,
+    id: 2,
     slug: 'sony-a7r3',
     title: 'Sony α7R III Showcase',
     badge: 'SHIPPED',
@@ -113,7 +163,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     slug: 'trackshot',
     title: 'TrackShot',
     badge: 'SHIPPED',
@@ -160,7 +210,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     slug: 'parish-connect',
     title: 'Parish Connect',
     badge: 'SHIPPED',
@@ -204,7 +254,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     slug: 'rfv-allianz',
     title: 'RFV Allianz App',
     badge: 'SHIPPED',
@@ -245,7 +295,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     slug: 'tulay-app',
     title: 'Tulay App',
     badge: 'SHIPPED',
@@ -292,7 +342,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     slug: 'wings-of-angels',
     title: 'Wings of Angels Transport',
     badge: 'SHIPPED',
@@ -335,7 +385,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     slug: 'dss-brand-identity',
     title: 'DSS Brand Identity',
     badge: 'SHIPPED',
@@ -387,7 +437,7 @@ export const CARDS: WorkCard[] = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     slug: 'ublc-360',
     title: 'UBLC 360',
     badge: 'SHIPPED',

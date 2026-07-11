@@ -109,7 +109,7 @@ export default function ProjectDetail() {
                       src={src}
                       alt={`${project.title} screenshot ${i + 1}`}
                       draggable={false}
-                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[450ms] ease-out pointer-events-none"
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-[450ms] ease-out pointer-events-none"
                       style={{ opacity: i === current ? 1 : 0 }}
                     />
                   ))}
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
                       className={`shrink-0 w-16 h-[44px] rounded-lg overflow-hidden border-2 cursor-pointer transition-[opacity,border-color,transform] duration-200 bg-transparent p-0 hover:opacity-80 max-[900px]:w-[52px] max-[900px]:h-9 max-[900px]:rounded-md max-[480px]:w-11 max-[480px]:h-[30px] max-[480px]:rounded-[5px] ${i === current ? 'border-black/35 dark:border-white/35 opacity-100 scale-105' : 'border-transparent opacity-50'}`}
                       onClick={() => setCurrent(i)}
                     >
-                      <img src={src} alt={`thumb ${i + 1}`} className="w-full h-full object-cover" />
+                      <img src={src} alt={`thumb ${i + 1}`} className="w-full h-full object-cover object-top" />
                     </button>
                   ))}
                 </div>
