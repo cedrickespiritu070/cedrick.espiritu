@@ -24,16 +24,29 @@ const SKILLS: { category: string; items: Skill[] }[] = [
     category: 'Frontend',
     items: [
       { label: 'React',        icon: SiReact,       color: '#61DAFB' },
-      { label: 'TypeScript',   icon: SiTypescript,  color: '#3178C6' },
-      { label: 'Vite',         icon: SiVite,        color: '#646CFF' },
-      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-      { label: 'React Router', icon: SiReactrouter, color: '#CA4245' },
       { label: 'Next.js',      icon: SiNextdotjs,   color: '#ffffff' },
+      { label: 'TypeScript',   icon: SiTypescript,  color: '#3178C6' },
+      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+      { label: 'Vite',         icon: SiVite,        color: '#646CFF' },
+      { label: 'React Router', icon: SiReactrouter, color: '#CA4245' },
       { label: 'Vue',          icon: SiVuedotjs,    color: '#4FC08D' },
       { label: 'GSAP',         icon: SiGreensock,   color: '#88CE02' },
       { label: 'Three.js',     icon: SiThreedotjs,  color: '#ffffff' },
       { label: 'Lenis' },
       { label: 'Zustand' },
+    ],
+  },
+  {
+    category: 'Backend & Data',
+    items: [
+      { label: 'Supabase',             icon: SiSupabase,    color: '#3ECF8E' },
+      { label: 'PostgreSQL',           icon: SiPostgresql,  color: '#4169E1' },
+      { label: 'Node.js',              icon: SiNodedotjs,  color: '#339933' },
+      { label: 'Express',              icon: SiExpress,    color: '#888888' },
+      { label: 'Firebase',             icon: SiFirebase,    color: '#FFCA28' },
+      { label: 'Redis',                icon: SiRedis,       color: '#FF4438' },
+      { label: 'AWS RDS',              icon: FaAws,         color: '#FF9900' },
+      { label: 'AWS Cognito',          icon: FaAws,         color: '#FF9900' },
     ],
   },
   {
@@ -46,10 +59,8 @@ const SKILLS: { category: string; items: Skill[] }[] = [
     ],
   },
   {
-    category: 'Backend & Cloud',
+    category: 'Cloud & DevOps',
     items: [
-      { label: 'Node.js',              icon: SiNodedotjs,  color: '#339933' },
-      { label: 'Express',              icon: SiExpress,    color: '#888888' },
       { label: 'AWS Lambda',           icon: FaAws,        color: '#FF9900' },
       { label: 'API Gateway',          icon: FaAws,        color: '#FF9900' },
       { label: 'S3 & CloudFront',      icon: FaAws,        color: '#FF9900' },
@@ -63,17 +74,6 @@ const SKILLS: { category: string; items: Skill[] }[] = [
     ],
   },
   {
-    category: 'Database & Auth',
-    items: [
-      { label: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-      { label: 'Supabase',   icon: SiSupabase,   color: '#3ECF8E' },
-      { label: 'Firebase',   icon: SiFirebase,   color: '#FFCA28' },
-      { label: 'Redis',      icon: SiRedis,      color: '#FF4438' },
-      { label: 'AWS RDS',    icon: FaAws,        color: '#FF9900' },
-      { label: 'AWS Cognito',icon: FaAws,        color: '#FF9900' },
-    ],
-  },
-  {
     category: 'Design',
     items: [
       { label: 'Figma',       icon: SiFigma,          color: '#F24E1E' },
@@ -82,7 +82,7 @@ const SKILLS: { category: string; items: Skill[] }[] = [
     ],
   },
   {
-    category: 'DevOps & Tools',
+    category: 'Tools',
     items: [
       { label: 'Docker',  icon: SiDocker,  color: '#2496ED' },
       { label: 'GitHub',  icon: SiGithub,  color: '#ffffff' },

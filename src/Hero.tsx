@@ -139,9 +139,7 @@ export default function Hero() {
 
           <p className="text-[clamp(16px,1.7vw,24px)] font-bold text-black dark:text-white mt-[6px]">Nice to meet you!</p>
           <p className="text-[clamp(15px,1.6vw,23px)] leading-[1.65] text-black/55 dark:text-white/55">
-            I am your resident multimedia designer and software engineer:
-            front-end developer, mobile app builder, and branding fanatic. I
-            like bridging design and code to build things that actually ship.
+            I’m a software engineer building modern web and mobile products with React, Next.js, and TypeScript.
           </p>
 
           <div className="flex gap-[23px] items-center mt-1">
