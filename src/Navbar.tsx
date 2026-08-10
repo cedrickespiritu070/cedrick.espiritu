@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import ceLogo from './assets/ce-logo.svg'
+import { NAV_RESUME_PAGE } from './resumePageData'
 
 const NAV_LINKS = [
   { label: 'Work', to: '/' },
@@ -26,7 +27,6 @@ export default function Navbar({ dark, onToggle }: NavbarProps) {
         <img src={ceLogo} alt="CE" style={{ height: '26px', width: 'auto' }} />
       </div>
 
-      {/* Right side — wrapper keeps toggle + hamburger together without disrupting dropdown positioning */}
       <div className="flex items-center gap-1">
         <button
           onClick={onToggle}
@@ -79,6 +79,18 @@ export default function Navbar({ dark, onToggle }: NavbarProps) {
               onClick={() => setMenuOpen(false)}
             >
               Resume
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={NAV_RESUME_PAGE.to}
+              end
+              className={({ isActive }) =>
+                `navbar-link${isActive ? ' navbar-link--active' : ''}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              {NAV_RESUME_PAGE.label}
             </NavLink>
           </li>
         </ul>

@@ -6,6 +6,7 @@ import Hero from './Hero'
 import WorkCards from './WorkCards'
 import About from './About'
 import Resume from './Resume'
+import AdSparkResume from './AdSparkResume'
 import ProjectDetail from './ProjectDetail'
 import Skills from './Skills'
 
@@ -57,6 +58,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/resume/adspark" element={<AdSparkResume />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
         </Routes>
       </main>
